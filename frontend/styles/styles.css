@@ -92,3 +92,100 @@ input {
 .display-none {
     display: none;
 }
+
+/*Nav Bar*/
+
+
+.nav-bar {
+    border-bottom: 3px solid #d5232f;
+    height: 90px;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #eee;
+}
+
+.nav-icon {
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 20%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  .nav-icon > img {
+    width: 2.5rem;
+    color: #d5232f;
+  }
+  .nav-icon > p {
+    text-align: center;
+    font-size: 1rem;
+    color: #d5232f;
+    font-weight: 700;
+  }
+
+  .nav-icon > h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #d5232f;
+    font-weight: 700;
+  }
+  
+  .nav-icon:hover {
+    background: lightgray;
+  }
+  
+  .image {
+    display: flex;
+    width: 100%;
+    padding: 0 4rem;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+  }
+
+@media screen and (max-width: 31.25rem) {
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-right: none;
+      border-top: 3px solid #d5232f;
+      height: auto;
+      padding: 1rem 0.6rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-icon {
+      padding: 0;
+    }
+    .nav-icon > img {
+      width: 2rem;
+    }
+  }
+
+  .main-container {
+    display: flex;
+    position: relative;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.app-body {
+    flex: 1 1;
+    padding: 1rem;
+    overflow: auto;
+}
