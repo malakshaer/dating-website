@@ -189,3 +189,17 @@ input {
     padding: 1rem;
     overflow: auto;
 }
+
+.search-input {
+  width: 80%;
+}
+.search-btn {
+  font-size: 1rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+  gap: 1rem;
+}
