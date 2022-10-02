@@ -20,67 +20,46 @@ const navBar = () => {
       <p>Messages</p>
     </div>`;
 };
-let position = "home";
+
 const navBarDom = document.getElementById("navbar");
 navBarDom.innerHTML = navBar();
 const navHomeBtn = document.getElementById("nav-home-btn");
 const navProfileBtn = document.getElementById("nav-profile-btn");
 const navFavoriteBtn = document.getElementById("nav-favorite-btn");
 const navMessageBtn = document.getElementById("nav-message-btn");
-const appBody = document.getElementById("app-body");
 
-navHomeBtn.addEventListener("click", () => {
-  position = "home";
-  homeRender();
-
+navHomeBtn.onclick = () => {
   navHomeBtn.children[0].src = "/frontend/assets/home-active-icon.svg";
-  navHomeBtn.children[1].style.color = "#e21a58";
   navProfileBtn.children[0].src = "/frontend/assets/person-icon.svg";
-  navProfileBtn.children[1].style.color = "#54549f";
   navFavoriteBtn.children[0].src = "/frontend/assets/favorite-icon.svg";
-  navFavoriteBtn.children[1].style.color = "#54549f";
   navMessageBtn.children[0].src = "/frontend/assets/message-icon.svg";
-  navMessageBtn.children[1].style.color = "#54549f";
-});
 
-navPersonBtn.addEventListener("click", () => {
-  position = "profile";
-  profileRender();
+  userRender();
+};
 
+navProfileBtn.onclick = () => {
   navHomeBtn.children[0].src = "/frontend/assets/home-icon.svg";
-  navHomeBtn.children[1].style.color = "#e21a58";
   navProfileBtn.children[0].src = "/frontend/assets/person-active-icon.svg";
-  navProfileBtn.children[1].style.color = "#54549f";
   navFavoriteBtn.children[0].src = "/frontend/assets/favorite-icon.svg";
-  navFavoriteBtn.children[1].style.color = "#54549f";
   navMessageBtn.children[0].src = "/frontend/assets/message-icon.svg";
-  navMessageBtn.children[1].style.color = "#54549f";
-});
 
-navSearchBtn.addEventListener("click", () => {
-  position = "favorite";
-  favoriteRender();
+  profileRender();
+};
 
+navFavoriteBtn.onclick = () => {
   navHomeBtn.children[0].src = "/frontend/assets/home-icon.svg";
-  navHomeBtn.children[1].style.color = "#e21a58";
   navProfileBtn.children[0].src = "/frontend/assets/person-icon.svg";
-  navProfileBtn.children[1].style.color = "#54549f";
   navFavoriteBtn.children[0].src = "/frontend/assets/favorite-active-icon.svg";
-  navFavoriteBtn.children[1].style.color = "#54549f";
   navMessageBtn.children[0].src = "/frontend/assets/message-icon.svg";
-  navMessageBtn.children[1].style.color = "#54549f";
-});
 
-navCartBtn.addEventListener("click", () => {
-  position = "cart";
-  messageRender();
+  favoriteRender();
+};
 
+navMessageBtn.onclick = () => {
   navHomeBtn.children[0].src = "/frontend/assets/home-icon.svg";
-  navHomeBtn.children[1].style.color = "#e21a58";
   navProfileBtn.children[0].src = "/frontend/assets/person-icon.svg";
-  navProfileBtn.children[1].style.color = "#54549f";
   navFavoriteBtn.children[0].src = "/frontend/assets/favorite-icon.svg";
-  navFavoriteBtn.children[1].style.color = "#54549f";
   navMessageBtn.children[0].src = "/frontend/assets/message-active-icon.svg";
-  navMessageBtn.children[1].style.color = "#54549f";
-});
+
+  messageRender();
+};
