@@ -19,9 +19,7 @@ const navBar = () => {
       <img src="/frontend/assets/message-icon.svg" alt="" />
       <p>Messages</p>
     </div>
-    <div>
-        <button onclick="location.href = '/frontend/sign.html';" class="update-profile-btn" id='sign-out'>Sign Out</button>
-    </div>`;
+    <img class="profile-logo" src="/frontend/assets/profile_picture.jpg" alt="">`;
 };
 
 const navBarDom = document.getElementById("navbar");
