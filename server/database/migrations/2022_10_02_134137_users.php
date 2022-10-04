@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('confirmation_code');
             $table->timestamps();
-            $table->integer('age');
-            $table->integer('height');
             $table->string('bio');
             $table->text('location');
+            $table->integer('age');
+            $table->string("image_url");
             $table->integer("genders_id")->references('id')->on("genders");
         });
 
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('name');
         });
 
-        Schema::create('interested_in_gender', function (Blueprint $table) {
+        Schema::create('interests', function (Blueprint $table) {
             $table->id();
             $table->integer("users_id")->references('id')->on("users");
             $table->integer("genders_id")->references('id')->on("genders");
@@ -45,12 +45,6 @@ return new class extends Migration
             $table->integer("users_genders_id")->references('id')->on("genders");
         });
 
-        Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->integer("users_id")->references('id')->on("users");
-        });
-
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -59,7 +53,7 @@ return new class extends Migration
             $table->integer("receiver_id")->references('id')->on("users");
         });
 
-        Schema::create('blocked_users', function (Blueprint $table) {
+        Schema::create('blockedUsers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->integer("users_id")->references('id')->on("users");
@@ -76,9 +70,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('genders');
-        Schema::dropIfExists('interested_in_gender');
+        Schema::dropIfExists('interests');
         Schema::dropIfExists('favorites');
-        Schema::dropIfExists('images');
         Schema::dropIfExists('messages');
         Schema::dropIfExists('blocked_users');
     }
