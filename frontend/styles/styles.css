@@ -376,8 +376,7 @@ input {
   display: flex;
   justify-content: center;
   top: 0;
-  padding-top: 150px;
-  position: absolute;
+  padding-top: 40px;
   width: 100%;
 }
 .sender {
