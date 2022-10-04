@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('bio');
             $table->text('location');
             $table->integer('age');
-            $table->string("image_url");
+            $table->string("profile_img");
             $table->integer("genders_id")->references('id')->on("genders");
         });
 
