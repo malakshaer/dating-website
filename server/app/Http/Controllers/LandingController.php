@@ -92,4 +92,9 @@ class LandingController extends Controller
         ];
         return response()->json($data);
     }
+
+    function getMessage($id)
+    {
+        return Message::where('id', '=', 'receiver_id');
+    }
 }
