@@ -2,18 +2,26 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(["prefix" => "auth"], function () {
+
+    Route::group(["middleware" => "auth:api"], function () {
+        Route::get("/logout", [LandingController::class, "logout"]);
+        Route::get("/refresh", [LandingController::class, "refresh"]);
+    });
+
+    Route::get("/getUsers", [LandingController::class, "getUsers"]);
+    Route::get("/getFavorite", [LandingController::class, "getFavorite"]);
+    Route::get("/search/{name}", [LandingController::class, "search"]);
+    Route::post("/addFavorite", [LandingController::class, "addFavorite"]);
+    Route::post("/updateUserProfile/{id}", [LandingController::class, "updateUserProfile"]);
+    Route::get("/getUser/{id}", [LandingController::class, "getUser"]);
+
+
+    Route::post("/register", [AuthController::class, "register"]);
+    Route::post("/login", [AuthController::class, "login"]);
+    Route::post("/checkCode/{code}", [AuthController::class, "checkCode"]);
 });
