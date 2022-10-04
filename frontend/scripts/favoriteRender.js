@@ -4,7 +4,7 @@ const favoriteRender = () => {
       <div class="more-lists" id="favorite-products-list"><div>
       `;
 
-  axios.get(getUsersAPI).then((res) => {
+  axios.get(getFavoriteAPI).then((res) => {
     document.getElementById("users-list").innerHTML = userCard(res.data);
     loopingOverUserCards();
   });
