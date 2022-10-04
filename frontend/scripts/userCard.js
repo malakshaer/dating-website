@@ -2,8 +2,7 @@ const addToFavorite = document.getElementById("fav-button");
 
 const blockAPI = "";
 const editAPI = "";
-const addFavoriteURL =
-  "http://localhost:8080/e-commerce-team-project/server/api/clients/all.php";
+const addFavoriteURL = "";
 
 const userCard = (users, option = "Bio") => {
   var usersList = "";
