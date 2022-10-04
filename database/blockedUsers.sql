@@ -1,0 +1,10 @@
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (1, '2020-10-13', '2021-02-05', 14, 21);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (2, '2020-03-17', '2021-12-19', 2, 28);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (3, '2019-10-08', '2022-04-19', 10, 24);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (4, '2020-10-12', '2022-01-24', 5, 19);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (5, '2020-08-28', '2021-08-12', 10, 22);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (6, '2020-09-07', '2021-07-08', 4, 23);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (7, '2020-02-13', '2021-07-21', 2, 24);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (8, '2020-02-19', '2021-06-20', 10, 24);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (9, '2020-10-15', '2021-11-23', 10, 23);
+insert into blockedUsers (id, created_at, updated_at, users_id, users_id_blocked) values (10, '2020-09-15', '2022-05-23', 2, 29);
