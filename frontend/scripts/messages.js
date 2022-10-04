@@ -1,4 +1,4 @@
-export const Chats = () => {
+const Chats = () => {
   if (document.getElementById("send-message"))
     document
       .getElementById("send-message")
