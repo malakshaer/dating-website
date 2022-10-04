@@ -1,10 +1,6 @@
-let signAPI =
-  "http://localhost/e-commerce-team-project/server/api/sign/signin.php";
-
-let signupAPI =
-  "http://localhost/e-commerce-team-project/server/api/sign/signup.php";
-let checkCode =
-  "http://localhost/e-commerce-team-project/server/api/sign/verify_code.php";
+let signAPI = "";
+let signupAPI = "";
+let checkCode = "";
 
 const signUp = () => {
   return `<div class="sign-container display-none"  id='sign-up-container'>
