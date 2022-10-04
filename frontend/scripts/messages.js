@@ -4,8 +4,7 @@ export const Chats = () => {
       .getElementById("send-message")
       .addEventListener("click", async () => {
         const message = document.getElementById("msg").value;
-        const url =
-          "http://localhost/ecommerce/ecommerce-server/add-message.php";
+        const url = "";
 
         const data = JSON.stringify({
           message,
