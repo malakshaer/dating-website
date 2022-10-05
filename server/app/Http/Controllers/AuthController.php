@@ -66,6 +66,17 @@ class AuthController extends Controller
         }
     }
 
+    public function checkEmail(Request $request)
+    {
+        $data = $request->all();
+        $usersCount = User::where('email', $data['email'])->count();
+        if ($usersCount > 0) {
+            echo 'false';
+        } else {
+            echo 'true';
+        }
+    }
+
     public function me()
     {
         return response()->json(auth()->user());
