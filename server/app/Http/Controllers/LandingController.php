@@ -85,20 +85,21 @@ class LandingController extends Controller
         $user = json_decode(json_encode($user));
     }
 
-    public function replies()
+    public function replies($receiver_id)
     {
 
-        $receiver_id = User::user()->id;
         $replies = Message::where('receiver_id', $receiver_id)->orderBy('id', 'Desc')->get();
 
         return response()->json($replies);
     }
 
-    public function sendMessages()
+    public function sendMessage(Request $request, $sender_id)
     {
-        $sender_id = User::user()->id;
 
-        $send_message = Message::where('sender_id', $sender_id)->orderBy('id', 'Desc')->get();
+        $send_message = Message::create([
+            'massage' => $request->message,
+        ])->where('sender_id', $sender_id)->orderBy('id', 'Desc')->get();;
+
         $send_message = json_decode(json_encode($send_message));
     }
 
