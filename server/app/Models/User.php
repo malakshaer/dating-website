@@ -30,7 +30,7 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'password', 'confirmation_code', 'genders_id', 'interested_in', 'location', 'age', 'bio', 'profile_img'
+        'id', 'name', 'email', 'password', 'confirmation_code', 'genders_id', 'interested_in', 'location', 'age', 'bio', 'profile_img'
     ];
 
     public function Interest()
