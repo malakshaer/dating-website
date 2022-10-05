@@ -1,7 +1,7 @@
 const navBar = () => {
   return `
-    <div class="nav-icon">
-    <h1>Dating.com</h1>
+    <div>
+    <h1 class="dating-logo">Dating.com</h1>
     </div>
     <div class="nav-icon" id="nav-home-btn">
       <img id='img' src="/frontend/assets/home-icon.svg" alt="" />
