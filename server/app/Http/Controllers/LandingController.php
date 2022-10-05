@@ -52,43 +52,24 @@ class LandingController extends Controller
         return back()->with('success', 'User successfully created');
     }
 
-
-    // function updateUserProfile(Request $request, $id)
-    // {
-
-    //     User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => $request->password,
-    //         'genders_id' => $request->genders_id,
-    //         'location' => $request->location,
-    //         'age' => $request->age,
-    //         'bio' => $request->bio,
-    //         'profile_img' => $request->profile_img
-    //     ])->where('id', '=', $id);
-
-    //     return back()->with('message', 'Profile Updated');
-    // }
-
-    public function updateUserProfile($id, Request $request)
+    public function updateUserProfile(Request $request)
     {
-        $user = User::find($id);
+        $data = $request->all();
+        User::where('id', $data['id'])->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'genders_id' => $data['genders_id'],
+            'location' => $data['location'],
+            'age' => $data['age'],
+            'bio' => $data['bio'],
+            'profile_img' => $data['profile_img'],
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->genders_id = $request->genders_id;
-        $user->location = $request->location;
-        $user->age = $request->age;
-        $user->bio = $request->bio;
-        $user->profile_img = $request->profile_img;
-
-        $user->save();
+        ]);
 
         $data[] = [
-            'id' => $user->id,
-            'name' => $user->name,
             'status' => 200,
+            'message' => 'Profile Updated'
         ];
         return response()->json($data);
     }
