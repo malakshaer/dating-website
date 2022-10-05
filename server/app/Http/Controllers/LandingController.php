@@ -11,6 +11,7 @@ use App\Models\InterestedInGender;
 use App\Models\BlockedUser;
 use App\Http\Controllers\Auth;
 
+
 class LandingController extends Controller
 {
     function getUsers()
@@ -74,18 +75,32 @@ class LandingController extends Controller
         return response()->json($data);
     }
 
-    function getMessage()
+    public function viewProfile($email)
     {
-        return Message::where('id', '=', 'receiver_id');
+
+        $user = User::with([
+            'name', 'email', 'password', 'gender', 'interested_in', 'location', 'age', 'bio'
+        ])->where('email', $email)->first();
+
+        $user = json_decode(json_encode($user));
     }
 
-    function sendMessage(Request $request)
+    public function replies()
     {
 
-        Message::create([
-            'message' => $request->message
-        ]);
+        $receiver_id = User::user()->id;
+        $replies = Message::where('receiver_id', $receiver_id)->orderBy('id', 'Desc')->get();
 
-        return back()->with('success', 'Message successfully sent');
+        return response()->json($replies);
+    }
+
+    public function sendMessages()
+    {
+
+
+        $sender_id = User::user()->id;
+
+        $send_message = Message::where('sender_id', $sender_id)->orderBy('id', 'Desc')->get();
+        $send_message = json_decode(json_encode($send_message));
     }
 }
