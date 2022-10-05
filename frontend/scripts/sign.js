@@ -1,6 +1,6 @@
-let signAPI = "";
-let signupAPI = "";
-let checkCode = "";
+let signAPI = "http://127.0.0.1:8000/api/auth/login";
+let signupAPI = "http://127.0.0.1:8000/api/auth/register";
+let checkCode = "http://127.0.0.1:8000/api/auth/checkCode";
 
 const signUp = () => {
   return `<div class="sign-container display-none"  id='sign-up-container'>
