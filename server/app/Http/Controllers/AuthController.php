@@ -51,18 +51,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function checkCode($code = "code")
+    public function checkCode(Request $request)
     {
-
-        $user = User::find($code);
-
-        if ($user) {
-            return response()->json([
-                "status" => "Success",
-                "data" => $user
-            ]);
+        $data = $request->all();
+        $usersCount = User::where('confirmation_code', $data['confirmation_code'])->count();
+        if ($usersCount > 0) {
+            echo 'false';
         } else {
-            return "error";
+            echo 'true';
         }
     }
 
