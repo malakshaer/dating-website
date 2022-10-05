@@ -96,11 +96,24 @@ class LandingController extends Controller
 
     public function sendMessages()
     {
-
-
         $sender_id = User::user()->id;
 
         $send_message = Message::where('sender_id', $sender_id)->orderBy('id', 'Desc')->get();
         $send_message = json_decode(json_encode($send_message));
+    }
+
+    public function deleteReply($id)
+    {
+
+        Message::where('id', $id)->delete();
+
+        return back()->with('success', 'Deleted successfully');
+    }
+
+    public function updateReply(Request $request)
+    {
+
+        $data = $request->all();
+        Message::where('id', $data['sender_id'])->update();
     }
 }
