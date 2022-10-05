@@ -1,8 +1,7 @@
 const addToFavorite = document.getElementById("fav-button");
+const searchBar = document.getElementById("search-users");
 
 const blockAPI = "";
-const editAPI = "";
-const addFavoriteURL = "";
 
 const userCard = (users, option = "Bio") => {
   var usersList = "";
@@ -17,7 +16,7 @@ const userCard = (users, option = "Bio") => {
                   </div>
                   <p class="user-card-name">${user.name},${user.age}</p>
                 </div>
-                <p  class="user-card-edit">${user.bio}</p>
+                <p>${user.bio}</p>            
                 <button id="fav-button" class="fav-button">
                   <img class="heart-btn" src="./assets/heart-fav.png" />
                 </button>
@@ -28,11 +27,11 @@ const userCard = (users, option = "Bio") => {
 };
 
 const loopingOverUserCards = () => {
-  let editUser = document.querySelectorAll(".user-card-edit");
+  let showUser = document.querySelectorAll(".all-cards-container");
 
-  editUser.forEach((edit) => {
-    edit.onclick = () => {
-      document.getElementById("app-body").innerHTML = userRender(edit.id);
+  showUser.forEach((show) => {
+    show.onclick = () => {
+      document.getElementById("app-body").innerHTML = userRender(show.id);
 
       document.getElementById("img-input").onchange = (event) => {
         var file = event.target.files[0];
@@ -54,17 +53,6 @@ const loopingOverUserCards = () => {
         var params = new URLSearchParams();
         params.append("user_id", edit.id);
         axios.post(blockAPI, params).then((res) => console.log(res.data));
-      };
-
-      let editBtn = document.getElementById("edit-btn");
-      editBtn.onclick = () => {
-        var params = new URLSearchParams();
-        params.append("id", edit.id);
-        params.append("name", document.getElementById("username").value);
-        params.append("email", document.getElementById("user-mail").value);
-        params.append("password", document.getElementById("user-pass").value);
-
-        axios.post(editAPI, params).then((res) => console.log(res.data));
       };
     };
   });
@@ -90,3 +78,7 @@ addToFavorite.onclick = () => {
   };
   update_favorites();
 };
+
+searchBar.addEventListener("change", () => {
+  get_search_result(searchBar.value);
+});
